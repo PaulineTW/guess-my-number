@@ -2,7 +2,6 @@
 
 // Generate random number(secretNumber)
 const secretNumber = Math.trunc(Math.random() * 20) + 1;
-document.querySelector('.number').textContent = secretNumber;
 let score = 20;
 
 //Compare secretNumber and user input(guess)
@@ -16,7 +15,8 @@ document.querySelector('.check').addEventListener('click', function() {
     // When player wins
   } else if (guess === secretNumber) {
     document.querySelector('.message').textContent = '🎉 Correct Number!';
-
+    document.querySelector('.number').textContent = secretNumber;
+    
     document.querySelector('body').style.backgroundColor = '#03CC90';
     document.querySelector('.number').style.width = '30rem';
 
