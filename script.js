@@ -15,13 +15,12 @@ const displayScore = function(score) {
 
 function audioFile(fileName){
   var audio = new Audio(fileName);
-          audio.play();
+  audio.play();
 }
 
 // Compare secretNumber and user input(guess)
 document.querySelector('.check').addEventListener('click', function() {
   const guess = Number(document.querySelector('.guess').value);
-
   // When there is no input from player
   if(!guess) {
     displayMessage('⛔️ No number!');
@@ -31,7 +30,7 @@ document.querySelector('.check').addEventListener('click', function() {
     displayMessage('🎉 Correct Number!');
     audioFile("audio/correct.mp3");
     document.querySelector('.number').textContent = secretNumber;
-    document.querySelector('body').style.backgroundColor = '#FE8A01';
+    document.querySelector('body').style.backgroundColor = '#579B55';
     document.querySelector('.number').style.width = '30rem';
 
     if (score > highscore) {
@@ -50,6 +49,7 @@ document.querySelector('.check').addEventListener('click', function() {
     } else {
       displayMessage('💥 Game over!');
       document.querySelector('.score').textContent = 0;
+      document.querySelector('body').style.backgroundColor="#CC362B";
     }
   }
 });
