@@ -13,6 +13,11 @@ const displayScore = function(score) {
   document.querySelector('.score').textContent = score;
 }
 
+function audioFile(fileName){
+  var audio = new Audio(fileName);
+          audio.play();
+}
+
 // Compare secretNumber and user input(guess)
 document.querySelector('.check').addEventListener('click', function() {
   const guess = Number(document.querySelector('.guess').value);
@@ -24,8 +29,9 @@ document.querySelector('.check').addEventListener('click', function() {
   // When player wins
   } else if (guess === secretNumber) {
     displayMessage('🎉 Correct Number!');
+    audioFile("audio/correct.mp3");
     document.querySelector('.number').textContent = secretNumber;
-    document.querySelector('body').style.backgroundColor = '#03CC90';
+    document.querySelector('body').style.backgroundColor = '#FE8A01';
     document.querySelector('.number').style.width = '30rem';
 
     if (score > highscore) {
@@ -37,6 +43,7 @@ document.querySelector('.check').addEventListener('click', function() {
   } else if (guess !== secretNumber) {    
       if(score > 1) {
       displayMessage(guess > secretNumber ? '📈 Too hight!' : '📉 Too low!');
+      audioFile("audio/wrong.mp3");
       score --; 
       displayScore(score)
       score;
@@ -59,6 +66,6 @@ document.querySelector('.again').addEventListener('click', function() {
   displayScore(score);
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
-  document.querySelector('body').style.backgroundColor = '#222';
+  document.querySelector('body').style.backgroundColor = '#403734';
   document.querySelector('.number').style.width = '15rem';
 });
