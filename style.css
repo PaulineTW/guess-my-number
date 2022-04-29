@@ -32,6 +32,14 @@ main {
   justify-content: space-around;
 }
 
+footer {
+  text-align: center;
+  margin: 50px;
+  font-size: large;
+  bottom: 0;
+  position: sticky;
+}
+
 .left {
   width: 52rem;
   display: flex;
