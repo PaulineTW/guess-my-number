@@ -9,6 +9,10 @@ const displayMessage = function(message) {
   document.querySelector('.message').textContent = message;
 }
 
+const displayScore = function(score) {
+  document.querySelector('.score').textContent = score;
+}
+
 // Compare secretNumber and user input(guess)
 document.querySelector('.check').addEventListener('click', function() {
   const guess = Number(document.querySelector('.guess').value);
@@ -37,7 +41,8 @@ document.querySelector('.check').addEventListener('click', function() {
       // document.querySelector('.message').textContent = guess > secretNumber ? '📈 Too hight!' : '📉 Too low!';
       displayMessage(guess > secretNumber ? '📈 Too hight!' : '📉 Too low!');
       score --; 
-      document.querySelector('.score').textContent = score;
+      // document.querySelector('.score').textContent = score;
+      displayScore(score)
       score;
     } else {
       // document.querySelector('.message').textContent = '💥 Game over!';
@@ -57,7 +62,8 @@ document.querySelector('.again').addEventListener('click', function() {
 // Restore initial values of variables
   // document.querySelector('.message').textContent = 'Start guessing...';
   displayMessage('Start guessing...');
-  document.querySelector('.score').textContent = score;
+  // document.querySelector('.score').textContent = score;
+  displayScore(score)
   document.querySelector('.number').textContent = '?';
   document.querySelector('.guess').value = '';
   document.querySelector('body').style.backgroundColor = '#222';
