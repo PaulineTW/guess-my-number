@@ -26,11 +26,10 @@ document.querySelector('.check').addEventListener('click', function() {
       document.querySelector('.highscore').textContent = highscore;
     }
 
-    // when guess is too hight
-  } else if (guess > secretNumber) {
-    // only if score is above 0 run code
-    if(score > 1) {
-      document.querySelector('.message').textContent = '📈 Too high!';
+    // when guess is wrong
+  } else if (guess !== secretNumber) {    
+      if(score > 1) {
+      document.querySelector('.message').textContent = guess > secretNumber ? '📈 Too hight!' : '📉 Too low!';
       score --; 
       document.querySelector('.score').textContent = score;
       score;
@@ -38,19 +37,33 @@ document.querySelector('.check').addEventListener('click', function() {
       document.querySelector('.message').textContent = '💥 Game over!';
       document.querySelector('.score').textContent = 0;
     }
+  }
+  
+  // // when guess is too hight
+  // else if (guess > secretNumber) {
+  //   // only if score is above 0 run code
+  //   if(score > 1) {
+  //     document.querySelector('.message').textContent = '📈 Too hight!';
+  //     score --; 
+  //     document.querySelector('.score').textContent = score;
+  //     score;
+  //   } else {
+  //     document.querySelector('.message').textContent = '💥 Game over!';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
 
-    // when guess is too low
-  } else if (guess < secretNumber) {
-    if(score > 1) {
-      document.querySelector('.message').textContent = '📉 Too low!';
-      score --; 
-      document.querySelector('.score').textContent = score;
-      score;
-    } else {
-      document.querySelector('.message').textContent = '💥 Game over!';
-      document.querySelector('.score').textContent = 0;
-    }
-  };
+  //   // when guess is too low
+  // } else if (guess < secretNumber) {
+  //   if(score > 1) {
+  //     document.querySelector('.message').textContent = '📉 Too low!';
+  //     score --; 
+  //     document.querySelector('.score').textContent = score;
+  //     score;
+  //   } else {
+  //     document.querySelector('.message').textContent = '💥 Game over!';
+  //     document.querySelector('.score').textContent = 0;
+  //   }
+  // };
 });
 
 // game reset functionality
